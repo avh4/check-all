@@ -21,7 +21,7 @@ jobs:
           ghc-version: '9.2.4'
       - uses: actions/cache@v2
         with:
-          path: ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+          path: ${{ steps.setup-haskell.outputs.cabal-store }}
           key: cabal-v1-${{ runner.os }}-${{ hashFiles('check-all.cabal') }}
       - run: cabal update
       - run: cabal test
