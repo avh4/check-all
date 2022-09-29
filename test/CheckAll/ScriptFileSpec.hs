@@ -11,6 +11,7 @@ spec =
     it "parses a single command" $
       ScriptFile.parse "- `echo`"
         `shouldBe` ScriptFile [Command ["echo"] []]
+
     it "parses nested commands" $
       parse
         [ "- `a`",
@@ -32,6 +33,16 @@ spec =
               ["a"]
               [ Command ["b"] []
               ]
+          ]
+
+    it "parses multiple top-level commands" $
+      parse
+        [ "- `a`",
+          "- `b`"
+        ]
+        `shouldBe` ScriptFile
+          [ Command ["a"] [],
+            Command ["b"] []
           ]
 
 parse :: [Text.Text] -> ScriptFile
