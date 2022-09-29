@@ -45,6 +45,7 @@ ghc-options:
 dependencies:
   - base
   - directory
+  - text
   - typed-process
 
 

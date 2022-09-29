@@ -1,4 +1,4 @@
-{ mkDerivation, base, directory, hspec, hspec-discover, lib, temporary
+{ mkDerivation, base, directory, hspec, hspec-discover, lib, temporary, text
 , typed-process }:
 mkDerivation {
   pname = "check-all";
@@ -6,8 +6,8 @@ mkDerivation {
   src = ./.;
   isLibrary = false;
   isExecutable = true;
-  executableHaskellDepends = [ base directory typed-process ];
-  testHaskellDepends = [ base directory hspec temporary typed-process ];
+  executableHaskellDepends = [ base directory text typed-process ];
+  testHaskellDepends = [ base directory hspec temporary text typed-process ];
   testToolDepends = [ hspec-discover ];
   description = "TODO";
   license = lib.licenses.gpl3Only;
