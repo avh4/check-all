@@ -37,6 +37,7 @@ executable check-all
       ImportQualifiedPost
       LambdaCase
       MultiParamTypeClasses
+      OverloadedLists
       OverloadedStrings
       PolyKinds
       ScopedTypeVariables
@@ -46,7 +47,9 @@ executable check-all
   ghc-options: -threaded -O2 -Wall -Wcompat -Wredundant-constraints -Werror=inaccessible-code -Werror=incomplete-patterns -Werror=missing-fields -Werror=missing-home-modules -Werror=overflowed-literals -Werror=overlapping-patterns
   build-depends:
       base
+    , cmark >=0.6
     , directory
+    , recursion-schemes
     , text
     , typed-process
   default-language: Haskell2010
@@ -55,6 +58,7 @@ test-suite spec
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      CheckAll.ScriptFileSpec
       MainSpec
       SpecPrelude
       CheckAll
@@ -78,6 +82,7 @@ test-suite spec
       ImportQualifiedPost
       LambdaCase
       MultiParamTypeClasses
+      OverloadedLists
       OverloadedStrings
       PolyKinds
       ScopedTypeVariables
@@ -89,8 +94,10 @@ test-suite spec
       hspec-discover:hspec-discover
   build-depends:
       base
+    , cmark >=0.6
     , directory
     , hspec >=2.7.10
+    , recursion-schemes
     , temporary
     , text
     , typed-process

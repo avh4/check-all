@@ -22,6 +22,7 @@ default-extensions:
   - ImportQualifiedPost
   - LambdaCase
   - MultiParamTypeClasses
+  - OverloadedLists
   - OverloadedStrings
   - PolyKinds
   - ScopedTypeVariables
@@ -44,7 +45,9 @@ ghc-options:
 
 dependencies:
   - base
+  - cmark >= 0.6
   - directory
+  - recursion-schemes
   - text
   - typed-process
 

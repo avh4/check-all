@@ -10,7 +10,7 @@ spec =
   it "runs a single command" $ do
     withTestDir $ do
       run
-        [ "- cp a.in a.out"
+        [ "- `cp a.in a.out`"
         ]
       exists <- doesFileExist "a.out"
       exists `shouldBe` True
