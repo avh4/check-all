@@ -1,0 +1,4 @@
+- `nix-build`
+    - `hpack`
+    - `cabal build`
+    - `cabal test`
