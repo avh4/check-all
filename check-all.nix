@@ -1,5 +1,5 @@
-{ mkDerivation, base, cmark, directory, hspec, hspec-discover, lib
-, recursion-schemes, temporary, text, typed-process }:
+{ mkDerivation, base, cmark, directory, hspec, hspec-discover, lib, mtl
+, recursion-schemes, temporary, text, text-ansi, typed-process }:
 mkDerivation {
   pname = "check-all";
   version = "0.0.0";
@@ -7,15 +7,17 @@ mkDerivation {
   isLibrary = false;
   isExecutable = true;
   executableHaskellDepends =
-    [ base cmark directory recursion-schemes text typed-process ];
+    [ base cmark directory mtl recursion-schemes text text-ansi typed-process ];
   testHaskellDepends = [
     base
     cmark
     directory
     hspec
+    mtl
     recursion-schemes
     temporary
     text
+    text-ansi
     typed-process
   ];
   testToolDepends = [ hspec-discover ];

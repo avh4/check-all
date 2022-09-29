@@ -47,8 +47,10 @@ dependencies:
   - base
   - cmark >= 0.6
   - directory
+  - mtl
   - recursion-schemes
   - text
+  - text-ansi
   - typed-process
 
 

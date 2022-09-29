@@ -34,6 +34,15 @@ spec = do
       existsB <- doesFileExist "b.out"
       (existsA, existsB) `shouldBe` (True, True)
 
+  it "stops when a dependency command fails" $ do
+    withTestDir $ do
+      run
+        [ "- `cp a.in a.out`",
+          "    - `false`"
+        ]
+      exists <- doesFileExist "a.out"
+      exists `shouldBe` False
+
 run :: [String] -> IO ()
 run scriptFileLines = do
   writeFile "check-all.ca" $ unlines scriptFileLines
