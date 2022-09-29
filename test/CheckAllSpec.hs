@@ -1,4 +1,4 @@
-module MainSpec where
+module CheckAllSpec where
 
 import CheckAll qualified
 import SpecPrelude

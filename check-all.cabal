@@ -59,7 +59,7 @@ test-suite spec
   main-is: Spec.hs
   other-modules:
       CheckAll.ScriptFileSpec
-      MainSpec
+      CheckAllSpec
       SpecPrelude
       CheckAll
       CheckAll.ScriptFile
