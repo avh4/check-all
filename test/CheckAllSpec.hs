@@ -16,7 +16,8 @@ spec =
       exists `shouldBe` True
 
 run :: [String] -> IO ()
-run _ = do
+run scriptFileLines = do
+  writeFile "check-all.ca" $ unlines scriptFileLines
   CheckAll.main
 
 withTestDir :: IO () -> IO ()
