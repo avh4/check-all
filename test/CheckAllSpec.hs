@@ -6,7 +6,7 @@ import System.Directory (doesFileExist, withCurrentDirectory)
 import System.IO.Temp (withTempDirectory)
 
 spec :: Spec
-spec =
+spec = do
   it "runs a single command" $ do
     withTestDir $ do
       run
@@ -14,6 +14,25 @@ spec =
         ]
       exists <- doesFileExist "a.out"
       exists `shouldBe` True
+
+  it "runs nested commands child-first" $ do
+    withTestDir $ do
+      run
+        [ "- `cp a.out b.out`",
+          "    - `cp a.in a.out`"
+        ]
+      exists <- doesFileExist "b.out"
+      exists `shouldBe` True
+
+  it "runs nested multiple top-level commands" $ do
+    withTestDir $ do
+      run
+        [ "- `cp a.in a.out`",
+          "- `cp a.in b.out`"
+        ]
+      existsA <- doesFileExist "a.out"
+      existsB <- doesFileExist "b.out"
+      (existsA, existsB) `shouldBe` (True, True)
 
 run :: [String] -> IO ()
 run scriptFileLines = do
