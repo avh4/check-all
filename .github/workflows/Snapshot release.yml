@@ -10,15 +10,22 @@ jobs:
         os:
           - ubuntu-latest
           - macOS-latest
+          - windows-latest
     name: snapshot-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2.4.0
-      - uses: cachix/install-nix-action@v17
+      - uses: actions/checkout@v2
+      - uses: haskell/actions/setup@v2
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-      - run: nix-build
+          ghc-version: '9.2.4'
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+          key: cabal-v1-${{ runner.os }}-${{ hashFiles('check-all.cabal') }}
+      - run: cabal update
+      - run: cabal test
+      - run: cabal install --installdir=./dist
       - uses: actions/upload-artifact@v2
         with:
           name: check-all-${{ github.sha }}-${{ runner.os }}
-          path: result/bin/
+          path: dist/
