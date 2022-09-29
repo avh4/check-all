@@ -45,7 +45,7 @@ spec = do
 
 run :: [String] -> IO ()
 run scriptFileLines = do
-  writeFile "check-all.ca" $ unlines scriptFileLines
+  writeFile ".cafile" $ unlines scriptFileLines
   CheckAll.main
 
 withTestDir :: IO () -> IO ()

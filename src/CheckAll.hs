@@ -12,7 +12,7 @@ import System.Process.Typed (ExitCode (..), runProcess, shell)
 
 main :: IO ()
 main = do
-  scriptSource <- Text.readFile "check-all.ca"
+  scriptSource <- Text.readFile ".cafile"
   let script = ScriptFile.parse scriptSource
   let (ScriptFile cmds) = script
   result <- runExceptT $ runGroup cmds

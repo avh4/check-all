@@ -55,7 +55,7 @@ dependencies:
 
 
 executables:
-  check-all:
+  ca:
     main: Main.hs
     source-dirs:
       - src

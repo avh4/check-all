@@ -13,7 +13,7 @@ maintainer:     gruen0aermel@gmail.com
 license:        GPL-3.0-only
 build-type:     Simple
 
-executable check-all
+executable ca
   main-is: Main.hs
   other-modules:
       CheckAll

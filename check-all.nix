@@ -23,5 +23,5 @@ mkDerivation {
   testToolDepends = [ hspec-discover ];
   description = "TODO";
   license = lib.licenses.gpl3Only;
-  mainProgram = "check-all";
+  mainProgram = "ca";
 }
