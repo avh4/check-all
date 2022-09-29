@@ -19,6 +19,7 @@ default-extensions:
   - FlexibleContexts
   - FlexibleInstances
   - GeneralizedNewtypeDeriving
+  - ImportQualifiedPost
   - LambdaCase
   - MultiParamTypeClasses
   - OverloadedStrings
@@ -43,6 +44,8 @@ ghc-options:
 
 dependencies:
   - base
+  - directory
+  - typed-process
 
 
 executables:
@@ -61,4 +64,5 @@ tests:
       - src
     dependencies:
       - hspec >= 2.7.10
+      - temporary
     build-tools: hspec-discover

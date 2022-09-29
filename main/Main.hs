@@ -1,4 +1,6 @@
 module Main (main) where
 
+import CheckAll qualified
+
 main :: IO ()
-main = return ()
+main = CheckAll.main
