@@ -14,6 +14,7 @@ in haskellPackages.shellFor {
     hpack
     niv
     nixfmt
+    taskell
     # Must use the same ghc as the project
     haskellPackages.ghcid
     haskellPackages.haskell-language-server
