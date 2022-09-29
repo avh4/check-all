@@ -15,4 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: cachix/install-nix-action@v17
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
       - run: nix-build
