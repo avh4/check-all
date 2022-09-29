@@ -22,6 +22,17 @@ spec =
               [ Command ["b"] []
               ]
           ]
+    it "parses nested commands with 4-space indent" $
+      parse
+        [ "- `a`",
+          "    - `b`"
+        ]
+        `shouldBe` ScriptFile
+          [ Command
+              ["a"]
+              [ Command ["b"] []
+              ]
+          ]
 
 parse :: [Text.Text] -> ScriptFile
 parse = ScriptFile.parse . Text.unlines
